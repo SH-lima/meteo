@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+header{
+    background: #FFF6C8;
+    padding: 30px;
+
+}
+
+#keyword{
+    height: 30px; 
+}
+li{
+    list-style: none;
+    margin: 0;
+}
+.styleWindow{
+    width: 500px;
+    border: 1px solid rgb(248, 237, 237);
+    border-radius:10px;
+    font-size: 18px; 
+    padding:5px 10px;   
+}
+#search{
+    width: 500px;
+    height: 30%;
+    margin: auto;
+}
+.hide{
+    display: none;
+}
+.windowResults{
+    position: absolute;
+    top: 61.5px;
+    margin: 0 470px;
+    background: white;
+    border-radius:0 0 10px 10px;
+    border-top:white;
+}
+.borderBottom{
+    border-radius:10px 10px 0 0;
+    border-bottom:3px solid rgb(241, 218, 218);
+    background: white;
+}
+/* la section de meteo  */
+#meteo{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+}
+/* la parties des infos meteo */
+#infoMeteo{
+    display:grid;
+    grid-template-areas:
+        "city temp"
+        "meteoDes meteoDes"
+        "meteoDes meteoDes"
+    ;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    text-align: center;
+    color: #3F7485;
+    background: #E0FFC8;
+    margin: 0 10px;
+    
+}
+#city{
+    grid-area: city;
+    border: 3px solid white;
+}
+#temp{
+    grid-area: temp;
+    border: 3px solid white;
+}
+#meteoDescreption{
+    grid-area: meteoDes;
+    border: 3px solid white;
+}
+/*  */
+#meteoFivedays{
+    border: 1px solid #C8FFF2;
+}
+/* la section de la carte */
+#map{
+    border: 1px solid #C8DBFF;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    margin: 35px auto;
+    width: 80%;
+}
+button{
+    display: block;
+    border: rgb(171, 250, 247) solid 1px;
+    width: 519.5px;
+    background-color: white;
+    /* border-radius:10px; */
+    font-size: 16px; 
+    padding:5px 10px;
+    text-align: left;
+    
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav id="search">
+            <form id="searchBar">
+                <label for="keyword"></label>
+                <input id="keyword" class="styleWindow" name="eerre" type="text" aria-label="rechercher" placeholder="Weather of your city">
+            </form>
+        </nav>
+    </header>
+    <div id="listCity" class="windowResults  hide" >
+       
+    </div>    
+    <section id="meteo">
+            <div id="infoMeteo">
+                <div id="city"></div>
+                <div id="temp"></div>
+                <div id="meteoDescreption"></div>
+            </div>
+            <div id="meteoFivedays">
+                <canvas id="myChart" width="300" height="200"></canvas>
+            </div>
+    </section>
+    <section id="map">
+
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
