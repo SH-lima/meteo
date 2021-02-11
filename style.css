@@ -64,22 +64,22 @@ li{
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     text-align: center;
-    color: #3F7485;
-    background: #E0FFC8;
+    color: #0b9dce;
+    background: white;
     margin: 0 10px;
     
 }
 #city{
     grid-area: city;
-    border: 3px solid white;
+    border: 2px solid #C8F2FF;
 }
 #temp{
     grid-area: temp;
-    border: 3px solid white;
+    border: 2px solid #C8F2FF;
 }
 #meteoDescreption{
     grid-area: meteoDes;
-    border: 3px solid white;
+    border: 2px solid #C8F2FF;
 }
 /*  */
 #meteoFivedays{

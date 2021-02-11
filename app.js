@@ -6,8 +6,8 @@ const windowResults = document.querySelector(".windowResults")
 const city = document.querySelector("#city")
 const temp = document.querySelector("#temp") 
 const meteoDescription = document.querySelector("#meteoDescreption")
-
-// creer un requet pour recuper des donnees pour l'auto-complete
+let localeName
+// creer un requet pour recuperer des donnees pour l'auto-complete
 const getCity = (info)=>{
     fetch(url, {
         method:"POST",
@@ -21,14 +21,25 @@ const getCity = (info)=>{
         //  pour enlever les resultats precedentes 
         listCity.innerHTML="";
         data.hits.forEach(element => {
-
-            // changer le style de bar de recherche 
+            // changer le style de bar de recherche
+            localeName = element.locale_names.default[0] 
             keyword.classList.add("borderBottom")
             // inserer les resultats de auto-completion dans une fenetre 
             listCity.insertAdjacentHTML("beforeend", 
-            `<button>${element.locale_names.default[0]}</button>`
-            )    
+            `<button class="elementOfListCity">${element.locale_names.default[0]}</button>`
+            ) 
         });
+            const elementsOfListCity = document.querySelectorAll(".elementOfListCity")
+            for (let index = 0; index < elementsOfListCity.length; index++) {
+                const elementCity = elementsOfListCity[index];
+                elementCity.addEventListener("click", ()=>{
+                     getMeteoOfToday(elementCity.textContent)
+                     getMeteoInfoOfFivedays(elementCity.textContent)
+                    console.log(elementCity.textContent)
+                    windowResults.style="display:none;";
+                    keyword.value=""
+                })
+            }
         // revenir sur le style initienl 
         keyword.classList.remove("borderBottom")
     })
@@ -51,24 +62,24 @@ keyword.addEventListener("keyup",(event)=>{
 document.querySelector("#searchBar").addEventListener("submit",(event)=>{
     event.preventDefault();
     console.log(keyword.value)
-    getMeteoOfToday()
-    getMeteoInfoOfFivedays()
+    getMeteoOfToday(keyword.value)
+    getMeteoInfoOfFivedays(keyword.value)
     keyword.value=""     
 })
 
 // recuper la meteo de aujourd'hui
-const getMeteoOfToday = ()=>{
+const getMeteoOfToday = (nameCity)=>{
     // effacer  les infos precedentes 
     city.innerHTML="";
     temp.innerHTML="";
     meteoDescription.innerHTML="";
-    city.insertAdjacentHTML("beforeend", `<h3>${keyword.value}</h3>`)
     // creer une requet
-    const urlAPI = `http://api.openweathermap.org/data/2.5/find?q=${keyword.value}&units=metric&APPID=cda591f223fc1aec5adf0498d5ca1a7c`
+    const urlAPI = `http://api.openweathermap.org/data/2.5/find?q=${nameCity}&units=metric&APPID=cda591f223fc1aec5adf0498d5ca1a7c`
     fetch(urlAPI)   
     .then(response => response.json())
     .then((data)=>{
-        // console.log(data)
+        console.log(data)
+        city.insertAdjacentHTML("beforeend", `<h3>${data.list[0].name}</h3>`)
         temp.insertAdjacentHTML("beforeend", `<h3>${data.list[0].main.temp}</h3>`)
         meteoDescription.insertAdjacentHTML("beforeend",
          `<h3>${data.list[0].weather[0].main}</h3>
@@ -78,11 +89,11 @@ const getMeteoOfToday = ()=>{
 
 
 // regrouper les infos meteo et le graphique dans une fonction 
-const getMeteoInfoOfFivedays = ()=>{
-    // creer une requet pour recuper le meteo de 5 prochain jour 
+const getMeteoInfoOfFivedays = (nameCity)=>{
+    // creer une requet pour recuper le meteo dans 5 prochain jour 
     const dateFiveDays =[]
     const tempFiveDays =[];    
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${keyword.value}&units=metric&appid=${APIkey}`)
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&units=metric&appid=${APIkey}`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);
@@ -124,17 +135,3 @@ const getMeteoInfoOfFivedays = ()=>{
 
 
 
-
-
-
-
-
-
-
-// function addData(chart, newdata) {
-//     chart.data.datasets[0].data = newdata
-//     chart.update();
-// }
-
-
-// addData(config, [2, 15, -0.9, -4, 9 ])
