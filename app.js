@@ -74,7 +74,7 @@ const getMeteoOfToday = (nameCity)=>{
     temp.innerHTML="";
     meteoDescription.innerHTML="";
     // creer une requet
-    const urlAPI = `http://api.openweathermap.org/data/2.5/find?q=${nameCity}&units=metric&APPID=cda591f223fc1aec5adf0498d5ca1a7c`
+    const urlAPI = `https://api.openweathermap.org/data/2.5/find?q=${nameCity}&units=metric&APPID=cda591f223fc1aec5adf0498d5ca1a7c`
     fetch(urlAPI)   
     .then(response => response.json())
     .then((data)=>{
@@ -95,7 +95,7 @@ const getMeteoInfoOfFivedays = (nameCity)=>{
     // creer une requet pour recuper le meteo dans 5 prochain jour 
     const dateFiveDays =[]
     const tempFiveDays =[];    
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&units=metric&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&units=metric&appid=${APIkey}`)
     .then(response => response.json())
     .then((data) => {
         console.log(data);
