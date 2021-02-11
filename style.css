@@ -86,14 +86,16 @@ li{
     border: 1px solid #C8FFF2;
 }
 /* la section de la carte */
-#map{
+#mapid { 
+    height: 300px;
+    width:  80%;
     border: 1px solid #C8DBFF;
     display:grid;
     justify-content: center;
     align-items: center;
     margin: 35px auto;
     width: 80%;
-}
+ }
 button{
     display: block;
     border: rgb(171, 250, 247) solid 1px;

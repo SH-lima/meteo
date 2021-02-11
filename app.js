@@ -79,12 +79,14 @@ const getMeteoOfToday = (nameCity)=>{
     .then(response => response.json())
     .then((data)=>{
         console.log(data)
+        console.log(data.list[0].coord)
         city.insertAdjacentHTML("beforeend", `<h3>${data.list[0].name}</h3>`)
         temp.insertAdjacentHTML("beforeend", `<h3>${data.list[0].main.temp}</h3>`)
         meteoDescription.insertAdjacentHTML("beforeend",
          `<h3>${data.list[0].weather[0].main}</h3>
          <i ${data.list[0].weather[0].icon}></i>
          `)
+         getMap(data.list[0].coord.lat, data.list[0].coord.lon)
     })}
 
 
