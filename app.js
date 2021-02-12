@@ -12,7 +12,9 @@ const getCity = (info)=>{
     fetch(url, {
         method:"POST",
         body:JSON.stringify({
-            query:info
+            query:info,
+            type:'city',
+            // hitsPerPage: '10'
         })
     })
     .then(response => response.json())
@@ -130,7 +132,8 @@ const getMeteoInfoOfFivedays = (nameCity)=>{
         var myChart = new Chart(ctx,config)    
         }    
 }
-
+getMeteoOfToday("marseille")
+getMeteoInfoOfFivedays("marseille")
 
     
 
