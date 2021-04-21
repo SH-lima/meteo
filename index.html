@@ -14,32 +14,44 @@
         <nav id="search">
             <form id="searchBar">
                 <label for="keyword"></label>
-                <input id="keyword" class="styleWindow" name="eerre" type="text" aria-label="rechercher" placeholder="Weather of your city">
+                <input id="keyword" class="styleWindow " name="eerre" type="text" aria-label="rechercher" placeholder="Weather of your city" autocomplete="off">
             </form>
+            <div id="listCity" class="windowResults hide" ></div>
         </nav>
     </header>
-    <div id="listCity" class="windowResults  " >
+    
        
-    </div>    
-    <section id="meteo">
-            <div id="infoMeteo">
-                <div id="city"></div>
-                <div id="temp"></div>
-                <div id="meteoDescreption"></div>
-            </div>
-            <div id="meteoFivedays">
-                <canvas id="myChart" style="height: 100; width: 250px;" ></canvas>
-            </div>
-    </section>
-    <section id="mapid"></section>
+    
+    <main id="background">
+
+        <div id="meteoFivedays">
+            <canvas id="myChart" style="display: block; height: 250px; width: 550px;" ></canvas>
+        </div>
+        <table id="infoMeteo">
+            <tr>
+                <td>La ville</td>
+                <td id="city"></td>  
+            </tr>
+            <tr>
+                <td>La temperature</td>
+                <td id="temp"></td>  
+            </tr>
+            <tr>
+                <td>La description de météo</td>
+                <td id="meteoDescreption"></td>  
+            </tr>
+        </table>
         
+        
+        <section id="mapid"></section>
+    
+        <!-- <section id="meteo"></section> -->
+    </main>
+    <footer>
+        Réaliser par : Halima SAID
+    </footer>     
     
         
-    
-
-
-
-
 
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

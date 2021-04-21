@@ -1,109 +1,124 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'lato';
+    background-position: center;
+    background-size: cover;
+    
 }
 header{
-    background: #FFF6C8;
-    padding: 30px;
-
+    background:rgba(146, 227, 230, 0.8);
+    padding: 2rem 0;
 }
-
+/* le style de la bar de navigation et la fenetre de l'autocomplète */
+#search{
+    width: 40vw;
+    height: 30%;
+    margin: auto;
+}
+#searchbar{
+    width: 80%;
+}
 #keyword{
     height: 30px; 
+}
+
+.styleWindow{
+    width: 100%;
+    border: 1px solid rgb(248, 237, 237);
+    border-radius:10px;
+    font-size: 18px; 
+    padding:5px 10px;
+    margin:0 auto;   
+}
+
+
+.windowResults{
+    position: absolute;
+
+    background: white;
+
+    width: 40vw;
+    font-size: 18px; 
+    padding:5px 10px;
+    margin:0 auto; 
 }
 li{
     list-style: none;
     margin: 0;
 }
-.styleWindow{
-    width: 500px;
-    border: 1px solid rgb(248, 237, 237);
-    border-radius:10px;
-    font-size: 18px; 
-    padding:5px 10px;   
-}
-#search{
-    width: 500px;
-    height: 30%;
-    margin: auto;
-}
 .hide{
     display: none;
 }
-.windowResults{
-    position: absolute;
-    top: 61.5px;
-    margin: 0 470px;
-    background: white;
-    border-radius:0 0 10px 10px;
-    border-top:white;
-}
-.borderBottom{
-    border-radius:10px 10px 0 0;
-    border-bottom:3px solid rgb(241, 218, 218);
-    background: white;
-}
-/* la section de meteo  */
-#meteo{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    width: 90%;
-}
-/* la parties des infos meteo */
-#infoMeteo{
-    display:grid;
-    grid-template-areas:
-        "city temp"
-        "meteoDes meteoDes"
-        "meteoDes meteoDes"
-    ;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    text-align: center;
-    color: #0b9dce;
-    background: white;
-    margin: 0 10px;
-    
-}
-#city{
-    grid-area: city;
-    border: 2px solid #C8F2FF;
-}
-#temp{
-    grid-area: temp;
-    border: 2px solid #C8F2FF;
-}
-#meteoDescreption{
-    grid-area: meteoDes;
-    border: 2px solid #C8F2FF;
-}
-/*  */
-#meteoFivedays{
-    border: 1px solid #C8FFF2;
-}
-/* la section de la carte */
-#mapid { 
-    height: 300px;
-    width:  80%;
-    border: 1px solid #C8DBFF;
-    display:grid;
-    justify-content: center;
-    align-items: center;
-    margin: 35px auto;
-    width: 80%;
- }
 button{
     display: block;
-    border: rgb(171, 250, 247) solid 1px;
-    width: 519.5px;
+    border: transparent;
+    border-bottom: rgb(171, 250, 247) solid 1px;
+    width: 100%;
     background-color: white;
     /* border-radius:10px; */
     font-size: 16px; 
     padding:5px 10px;
     text-align: left;
     
+}
+/* -------------------------- */
+.borderBottom{
+    border-radius:10px 10px 0 0;
+    border-bottom:3px solid rgb(241, 218, 218);
+    background: white;
+}
+/* la section de meteo  */
+main{
+    max-width: 110ch;
+    margin: 4rem auto;
+    padding: 1rem; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-gap: 1.7rem 10vw; 
+    
+}
+#background{
+    background-color:rgba(255, 255, 255, 0.8) !important;
+    
+}
+
+
+/* la parties des infos meteo */
+#infoMeteo{
+    text-align: left;
+    color: #0289b6;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    
+}
+table tr{
+    border: 2px solid #077597;
+    
+}
+#meteoFivedays{
+    /* border: 1px solid #C8FFF2; */
+    min-width: 50ch;
+    /* min-height: 40ch; */
+    height: 100%;
+    margin: auto 0;
+}
+
+/* la section de la carte */
+#mapid { 
+    min-width: 55ch;
+    width: 60vw;
+    height: 16rem;
+    border: 1px solid #C8DBFF;
+    margin:0 auto;
+    
+ }
+
+footer{
+    display: flex;
+    justify-content: center;
+    background:rgba(146, 227, 230, 0.8);
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.7rem;
 }
